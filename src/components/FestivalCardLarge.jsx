@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { FaStar } from 'react-icons/fa';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const FestivalCard = ({ festival }) => {
+const FestivalCardLarge = ({ festival }) => {
+  if (!festival || !festival.reviews) {
+    return <div>Loading...</div>;
+  }
   let genreString = '';
   festival.genres.forEach((genre, index) => {
     index == festival.genres.length - 1
@@ -43,4 +46,4 @@ const FestivalCard = ({ festival }) => {
   );
 };
 
-export default FestivalCard;
+export default FestivalCardLarge;

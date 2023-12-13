@@ -3,7 +3,7 @@ import FestivalCard from './FestivalCard';
 
 const FestivalCardList = ({ festivals }) => {
   return (
-    <div className='flex h-full gap-5'>
+    <div className='flex flex-col md:flex-row overflow-auto justify-center h-full gap-5 px-10'>
       {festivals.map((festival) => (
         <FestivalCard key={festival.festivalId} festival={festival} />
       ))}

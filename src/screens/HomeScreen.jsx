@@ -14,7 +14,7 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <div className='flex flex-col justify-center items-center mt-14 gap-16'>
+    <div className='flex flex-col justify-center items-center mt-14 gap-16 pb-20'>
       <div className='flex flex-col items-center gap-3'>
         <div className='max-w-xs'>
           <img src={logo}></img>

@@ -1,8 +1,13 @@
 import './App.css';
-import HomeScreen from './screens/HomeScreen';
+import { Outlet } from 'react-router-dom';
+import FestivalReviewScreen from './screens/FestivalReviewScreen';
 
 function App() {
-  return <HomeScreen></HomeScreen>;
+  return (
+    <div className='App'>
+      <Outlet />
+    </div>
+  );
 }
 
 export default App;
