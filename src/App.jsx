@@ -1,11 +1,8 @@
-import { useState } from 'react';
 import './App.css';
+import HomeScreen from './screens/HomeScreen';
 
 function App() {
-  // eslint-disable-next-line no-unused-vars
-  const [count, setCount] = useState(0);
-
-  return <></>;
+  return <HomeScreen></HomeScreen>;
 }
 
 export default App;
