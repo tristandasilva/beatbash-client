@@ -4,4 +4,9 @@
 
 body {
   background-color: #422c71;
+  font-family: 'Open Sans', 'sans-serif';
+}
+
+.genre {
+  font-style: italic;
 }

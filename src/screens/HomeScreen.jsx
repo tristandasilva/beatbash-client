@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import logo from '../assets/logo.png';
 import line from '../assets/line.svg';
-import FestivalCard from '../components/FestivalCard';
+import FestivalCardList from '../components/FestivalCardList.jsx';
 import axios from 'axios';
 
 const HomeScreen = () => {
@@ -14,7 +14,7 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <div className='flex flex-col justify-center mt-14 gap-16'>
+    <div className='flex flex-col justify-center items-center mt-14 gap-16'>
       <div className='flex flex-col items-center gap-3'>
         <div className='max-w-xs'>
           <img src={logo}></img>
@@ -24,11 +24,7 @@ const HomeScreen = () => {
           Review The Ryhthm
         </p>
       </div>
-      <div className='flex gap-5'>
-        {festivals.map((festival) => (
-          <FestivalCard key={festival.festivalId} festival={festival} />
-        ))}
-      </div>
+      <FestivalCardList festivals={festivals} />
     </div>
   );
 };
