@@ -20,7 +20,7 @@ const FestivalReviewScreen = () => {
     let reviewText = document.getElementById('comment');
     axios
       .post('/api/v1/reviews', {
-        reviewBody: reviewText.value,
+        body: reviewText.value,
         festivalId: festivalId,
       })
       .then((res) => {
