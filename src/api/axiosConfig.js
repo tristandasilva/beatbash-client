@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'http://localhost:8081',
+  baseURL: 'https://vast-shore-06153-20fca160e608.herokuapp.com',
 });

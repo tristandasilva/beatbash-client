@@ -1,20 +1,20 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../assets/logo.png';
 import line from '../assets/line.svg';
 import FestivalCardList from '../components/FestivalCardList.jsx';
-import axios from 'axios';
+import axios from '../api/axiosConfig.js';
 
 const HomeScreen = () => {
   const [festivals, setFestivals] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8081/api/v1/festivals').then((res) => {
+    axios.get('/api/v1/festivals').then((res) => {
       setFestivals(res.data);
     });
   }, []);
 
   return (
-    <div className='flex flex-col justify-center items-center mt-14 gap-16 pb-20'>
+    <div className='flex flex-col justify-center items-center gap-10 sm:gap-16 pb-20'>
       <div className='flex flex-col items-center gap-3'>
         <div className='max-w-xs'>
           <img src={logo}></img>

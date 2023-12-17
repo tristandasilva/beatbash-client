@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
 const FestivalCardLarge = ({ festival }) => {
   if (!festival || !festival.reviews) {
@@ -14,11 +13,11 @@ const FestivalCardLarge = ({ festival }) => {
   });
 
   return (
-    <div className='rounded-md overflow-hidden w-full md:max-w-[45%] lg:max-w-[280px] h-full'>
+    <div className='rounded-md overflow-hidden max-w-[425px] h-full'>
       <div>
         <img src={festival.images[0]} alt='Festival Image' className='w-full' />
       </div>
-      <div className='py-3 px-5 bg-white'>
+      <div className='py-5 px-7 bg-white'>
         <h4 className='font-semibold'>{festival.name}</h4>
         <div className='font-light text-sm'>
           {festival.city}, {festival.country}
@@ -36,11 +35,12 @@ const FestivalCardLarge = ({ festival }) => {
         </div>
         {/* Rating Div End */}
         <div className='text-xs genre mt-4'>{genreString}</div>
-        <Link to={`/festivals/${festival.festivalId}`}>
-          <button className='w-1/2 bg-[#81BE00] rounded px-4 py-2 mt-7 text-xs text-white'>
-            See Reviews
-          </button>
-        </Link>
+        <p className='text-sm font-light my-4'>
+          Lorem ipsum dolor sit amet consectetur. Nisl risus suspendisse vel
+          viverra id aliquet semper. Adipiscing elementum pellentesque odio
+          sollicitudin in enim nisl libero volutpat. Mattis integer in eget
+          amet. Quis suspendisse nisl cursus tincidunt et.
+        </p>
       </div>
     </div>
   );

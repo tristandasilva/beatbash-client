@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link, useParams } from 'react-router-dom';
 
