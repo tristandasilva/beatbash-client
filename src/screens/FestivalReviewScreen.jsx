@@ -44,8 +44,8 @@ const FestivalReviewScreen = () => {
   };
 
   return (
-    <div className='w-[90%] m-auto flex flex-col items-center md:items-stretch gap-12'>
-      <Link className='max-w-[250px]' to={'/'}>
+    <div className='w-[90%] m-auto flex flex-col items-center md:items-stretch gap-6 md:gap-12'>
+      <Link className='max-w-[350px] md:max-w-[300px]' to={'/'}>
         <img src={logo}></img>
       </Link>
       <div className='flex flex-col lg:flex-row items-start justify-between gap-8'>
