@@ -81,7 +81,7 @@ const FestivalReviewScreen = () => {
               Submit
             </Button>
           </form>
-          <div className='reviews mt-10 max-h-[350px] overflow-auto'>
+          <div className='customScrollbar reviews mt-10 max-h-[300px] overflow-auto'>
             {festival.reviews &&
               festival.reviews.map((review) => <Review review={review} />)}
           </div>
