@@ -44,7 +44,7 @@ const FestivalReviewScreen = () => {
   };
 
   return (
-    <div className='w-[90%] m-auto flex flex-col gap-12'>
+    <div className='w-[90%] m-auto flex flex-col items-center md:items-stretch gap-12'>
       <Link className='max-w-[250px]' to={'/'}>
         <img src={logo}></img>
       </Link>
@@ -81,7 +81,7 @@ const FestivalReviewScreen = () => {
               Submit
             </Button>
           </form>
-          <div className='customScrollbar reviews mt-10 max-h-[300px] overflow-auto'>
+          <div className='customScrollbar reviews mt-10 max-h-[300px] overflow-auto mb-10'>
             {festival.reviews &&
               festival.reviews.map((review) => <Review review={review} />)}
           </div>

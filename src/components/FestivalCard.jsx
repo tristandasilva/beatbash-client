@@ -11,7 +11,7 @@ const FestivalCard = ({ festival }) => {
   });
 
   return (
-    <div className='rounded-md overflow-auto flex-shrink-0 w-full md:max-w-[45%] lg:max-w-[280px] h-full'>
+    <div className='rounded-md overflow-auto flex-shrink-0 w-full lg:max-w-[280px] h-full'>
       <div>
         <img src={festival.images[0]} alt='Festival Image' className='w-full' />
       </div>
