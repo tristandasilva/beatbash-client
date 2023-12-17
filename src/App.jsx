@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='App h-screen flex items-center justify-center'>
+    <div className='App flex md:h-screen items-center justify-center'>
       <Outlet />
     </div>
   );
