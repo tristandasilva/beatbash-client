@@ -22,11 +22,11 @@ const FestivalCard = ({ festival }) => {
         </div>
         {/* Rating Div */}
         <div className='flex items-center gap-3 mt-2'>
-          <div className='flex'>
+          {/* <div className='flex'>
             {[...Array(5)].map((star, index) => {
               return <FaStar key={index} size={13} color='#FFB800'></FaStar>;
             })}
-          </div>
+          </div> */}
           <p className='text-sm text-[#787878]'>
             ({festival.reviews.length} Reviews)
           </p>

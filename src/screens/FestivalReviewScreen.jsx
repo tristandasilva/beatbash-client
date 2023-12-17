@@ -5,7 +5,6 @@ import FestivalCardLarge from '../components/FestivalCardLarge';
 import Review from '../components/Review';
 import logo from '../assets/logo.png';
 import { Label, Textarea, Button } from 'flowbite-react';
-import reviews from '../../reviews.json';
 import { FaStar } from 'react-icons/fa';
 
 const FestivalReviewScreen = () => {
@@ -13,6 +12,23 @@ const FestivalReviewScreen = () => {
   const [festival, setFestival] = useState({});
 
   useEffect(() => {
+    getSingleFestival(festivalId);
+  }, []);
+
+  const postReview = (e) => {
+    e.preventDefault();
+    let reviewText = document.getElementById('comment').value;
+    axios
+      .post('/api/v1/reviews', {
+        reviewBody: reviewText,
+        festivalId: festivalId,
+      })
+      .then((res) => {
+        getSingleFestival(festivalId);
+      });
+  };
+
+  const getSingleFestival = (festivalId) => {
     axios
       .get('/api/v1/festivals/' + festivalId)
       .then((res) => {
@@ -21,7 +37,7 @@ const FestivalReviewScreen = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  };
 
   return (
     <div className='w-[90%] m-auto flex flex-col gap-12'>
@@ -47,23 +63,23 @@ const FestivalReviewScreen = () => {
               className='rounded'
             />
             {/* Rating Div */}
-            <div className='flex mt-4 gap-1'>
+            {/* <div className='flex mt-4 gap-1'>
               {[...Array(5)].map((star, index) => {
                 return <FaStar key={index} size={18} color='#D4CCCC'></FaStar>;
               })}
-            </div>
+            </div> */}
             {/* Rating Div End */}
             <Button
               type='submit'
+              onClick={postReview}
               className='bg-[#D2F38C] text-[#5E5C62] mt-6 px-12 rounded'
             >
               Submit
             </Button>
           </form>
           <div className='reviews mt-10 max-h-[350px] overflow-auto'>
-            {reviews.map((review) => (
-              <Review key={review.reviewId} review={review} />
-            ))}
+            {festival.reviews &&
+              festival.reviews.map((review) => <Review review={review} />)}
           </div>
         </div>
       </div>
