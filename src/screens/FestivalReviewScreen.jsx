@@ -17,14 +17,18 @@ const FestivalReviewScreen = () => {
 
   const postReview = (e) => {
     e.preventDefault();
-    let reviewText = document.getElementById('comment').value;
+    let reviewText = document.getElementById('comment');
     axios
       .post('/api/v1/reviews', {
-        reviewBody: reviewText,
+        reviewBody: reviewText.value,
         festivalId: festivalId,
       })
       .then((res) => {
         getSingleFestival(festivalId);
+        reviewText.value = '';
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
