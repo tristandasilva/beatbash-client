@@ -10,6 +10,7 @@ import AuthDetails from '../components/AuthDetails.jsx';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase.js';
 import SignUpModal from '../components/Modals/SignUpModal.jsx';
+import SignedInView from '../components/SignedInView.jsx';
 
 const FestivalReviewScreen = () => {
   const { festivalId } = useParams();
@@ -69,12 +70,10 @@ const FestivalReviewScreen = () => {
   return (
     <div className='w-[90%] m-auto flex flex-col items-center md:items-stretch gap-6 md:gap-12'>
       <div className='flex justify-between'>
-        <Link className='max-w-[320px] md:max-w-[300px]' to={'/'}>
+        <Link className='max-w-[325px] md:max-w-[300px]' to={'/'}>
           <img src={logo}></img>
         </Link>
-        <div className='flex gap-3'>
-          <AuthDetails />
-        </div>
+        {authUser ? <SignedInView /> : <></>}
       </div>
 
       <div className='flex flex-col lg:flex-row items-start justify-between gap-8'>

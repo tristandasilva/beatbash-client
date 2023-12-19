@@ -13,7 +13,7 @@ const FestivalCardLarge = ({ festival }) => {
   });
 
   return (
-    <div className='rounded-md overflow-hidden max-w-[425px] h-full'>
+    <div className='rounded-md overflow-hidden max-w-full lg:max-w-[425px] h-full'>
       <div>
         <img src={festival.images[0]} alt='Festival Image' className='w-full' />
       </div>

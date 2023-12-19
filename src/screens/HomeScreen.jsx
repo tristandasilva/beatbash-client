@@ -33,7 +33,11 @@ const HomeScreen = () => {
             <AuthDetails></AuthDetails>
           </Dropdown.Item>
         </Dropdown>
+        
       </div> */}
+      <div className='sm:hidden w-full flex justify-center mb-8'>
+        <AuthDetails></AuthDetails>
+      </div>
       <div className='flex flex-col gap-3 float-right -ml-[200px] mr-[64px]'>
         <div className='hidden sm:flex'>
           <AuthDetails></AuthDetails>
@@ -48,9 +52,6 @@ const HomeScreen = () => {
           <p className='text-white text-lg font-normal tracking-[8px] uppercase mt-4'>
             Review The Ryhthm
           </p>
-          <div className='sm:hidden'>
-            <AuthDetails></AuthDetails>
-          </div>
         </div>
         <FestivalCardList festivals={festivals} />
       </div>
