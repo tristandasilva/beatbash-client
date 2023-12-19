@@ -5,6 +5,7 @@ import { auth } from '../firebase';
 
 const SignedInView = ({ user }) => {
   const [modal, setModal] = useState(false);
+
   modal
     ? document.body.classList.add('active-modal')
     : document.body.classList.remove('active-modal');

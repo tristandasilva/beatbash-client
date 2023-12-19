@@ -30,12 +30,12 @@ const SignInModal = () => {
         className='bg-[#36235F] border-[1px] border-[#D2F38C] text-[#D2F38C] rounded'
         onClick={toggleModal}
       >
-        Sign In
+        Log In
       </Button>
       {modal && (
         <div className='modal'>
           <div className='overlay' onClick={toggleModal}></div>
-          <div className='modal-content-container'>
+          <div className='modal-content-container sm:mt-0'>
             <div className='modal-content'>
               <form
                 onSubmit={signIn}

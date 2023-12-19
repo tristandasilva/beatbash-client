@@ -52,7 +52,7 @@ const SignUpModal = ({ text }) => {
       {modal && (
         <div className='modal'>
           <div className='overlay' onClick={toggleModal}></div>
-          <div className='modal-content-container'>
+          <div className='modal-content-container sm:mt-0'>
             <div className='modal-content'>
               <form className='authForm flex flex-col gap-5'>
                 <input
