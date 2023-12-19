@@ -23,7 +23,7 @@ const HomeScreen = () => {
 
   return (
     <div>
-      <div className='sm:hidden float-right -ml-16 mt-5'>
+      {/* <div className='sm:hidden float-right -ml-16 mt-5'>
         <Dropdown
           className='w-full h-full flex flex-col items-end bg-transparent'
           label=''
@@ -33,7 +33,7 @@ const HomeScreen = () => {
             <AuthDetails></AuthDetails>
           </Dropdown.Item>
         </Dropdown>
-      </div>
+      </div> */}
       <div className='flex flex-col gap-3 float-right -ml-[200px] mr-[64px]'>
         <div className='hidden sm:flex'>
           <AuthDetails></AuthDetails>
@@ -48,6 +48,9 @@ const HomeScreen = () => {
           <p className='text-white text-lg font-normal tracking-[8px] uppercase mt-4'>
             Review The Ryhthm
           </p>
+          <div className='sm:hidden'>
+            <AuthDetails></AuthDetails>
+          </div>
         </div>
         <FestivalCardList festivals={festivals} />
       </div>
