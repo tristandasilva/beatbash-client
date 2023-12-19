@@ -70,7 +70,7 @@ const FestivalReviewScreen = () => {
   return (
     <div className='w-[90%] m-auto flex flex-col items-center md:items-stretch gap-6 md:gap-12'>
       <div className='flex justify-between'>
-        <Link className='max-w-[325px] md:max-w-[300px]' to={'/'}>
+        <Link className='max-w-[310px] md:max-w-[300px]' to={'/'}>
           <img src={logo}></img>
         </Link>
         {authUser ? <SignedInView /> : <></>}
