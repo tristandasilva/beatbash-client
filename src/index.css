@@ -114,6 +114,11 @@ body.active-modal {
     width: 90%;
   }
 
+  .modal-content {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
   .overlay {
     margin-left: -20px;
     padding-left: 10;
