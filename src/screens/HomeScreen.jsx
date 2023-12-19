@@ -23,18 +23,18 @@ const HomeScreen = () => {
 
   return (
     <div>
+      <div className='sm:hidden float-right -ml-16 mt-5'>
+        <Dropdown
+          className='w-full h-full flex flex-col items-end bg-transparent'
+          label=''
+          dismissOnClick={false}
+        >
+          <Dropdown.Item>
+            <AuthDetails></AuthDetails>
+          </Dropdown.Item>
+        </Dropdown>
+      </div>
       <div className='flex flex-col gap-3 float-right -ml-[200px] mr-[64px]'>
-        <div className='sm:hidden float-right'>
-          <Dropdown
-            className='w-full h-full flex flex-col items-end bg-transparent'
-            label=''
-            dismissOnClick={false}
-          >
-            <Dropdown.Item>
-              <AuthDetails></AuthDetails>
-            </Dropdown.Item>
-          </Dropdown>
-        </div>
         <div className='hidden sm:flex'>
           <AuthDetails></AuthDetails>
         </div>
