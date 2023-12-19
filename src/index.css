@@ -15,6 +15,49 @@ body {
   height: 100%;
 }
 
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.modal-content-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+}
+
+.modal-content {
+  background-color: #422c71;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.authForm input {
+  background-color: rgba(161, 140, 206, 0.6);
+  border-radius: 4px;
+}
+
+.authForm input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 14px;
+}
+
+.overlay {
+  background-color: rgba(18, 7, 43, 0.6);
+}
+
 .genre {
   font-style: italic;
 }

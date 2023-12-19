@@ -6,6 +6,11 @@ import Review from '../components/Review';
 import logo from '../assets/logo.png';
 import { Label, Textarea, Button } from 'flowbite-react';
 import { FaStar } from 'react-icons/fa';
+import SignInModal from '../components/Modals/SignInModal.jsx';
+import SignUpModal from '../components/Modals/SignUpModal.jsx';
+import AuthDetails from '../components/AuthDetails.jsx';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase.js';
 
 const FestivalReviewScreen = () => {
   const { festivalId } = useParams();
@@ -22,6 +27,7 @@ const FestivalReviewScreen = () => {
       .post('/api/v1/reviews', {
         body: reviewText.value,
         festivalId: festivalId,
+        userId: auth.currentUser.uid,
       })
       .then((res) => {
         getSingleFestival(festivalId);
@@ -45,9 +51,27 @@ const FestivalReviewScreen = () => {
 
   return (
     <div className='w-[90%] m-auto flex flex-col items-center md:items-stretch gap-6 md:gap-12'>
-      <Link className='max-w-[320px] md:max-w-[300px]' to={'/'}>
-        <img src={logo}></img>
-      </Link>
+      <div className='flex justify-between'>
+        <Link className='max-w-[320px] md:max-w-[300px]' to={'/'}>
+          <img src={logo}></img>
+        </Link>
+        <div className='flex gap-3'>
+          <AuthDetails />
+          <SignInModal />
+          <SignUpModal />
+          <Button
+            onClick={() => {
+              signOut(auth).then(() => {
+                console.log('sign out done');
+                console.log(auth.currentUser);
+              });
+            }}
+          >
+            Sign out
+          </Button>
+        </div>
+      </div>
+
       <div className='flex flex-col lg:flex-row items-start justify-between gap-8'>
         <FestivalCardLarge festival={festival} />
         <div className='w-full -mt-2'>
