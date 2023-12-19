@@ -15,8 +15,8 @@ const SignInModal = () => {
   const signIn = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => alert('Hello, ' + userCredential.user.email))
-      .catch((err) => console.log(err));
+      .then((userCredential) => alert('Successfully signed in'))
+      .catch((err) => alert(err.code));
   };
 
   modal
@@ -27,7 +27,7 @@ const SignInModal = () => {
     <>
       <Button
         type='button'
-        className='bg-[#36235F] border-[1px] border-[#D2F38C] text-[#D2F38C] w-28 rounded'
+        className='bg-[#36235F] border-[1px] border-[#D2F38C] text-[#D2F38C] rounded'
         onClick={toggleModal}
       >
         Sign In
@@ -53,7 +53,13 @@ const SignInModal = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 ></input>
-                <Button type='submit'>Log In</Button>
+                <Button
+                  type='submit'
+                  onClick={signIn}
+                  className='bg-[#D2F38C] border-[1px] text-[#36235F] font-semibold w-28 rounded self-center mt-5'
+                >
+                  Log In
+                </Button>
               </form>
             </div>
           </div>

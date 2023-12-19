@@ -24,17 +24,6 @@ const HomeScreen = () => {
     <div>
       <div className='flex flex-col gap-3 float-right -ml-[200px] mr-[64px]'>
         <AuthDetails></AuthDetails>
-        <SignInModal />
-        <SignUpModal />
-        <Button
-          onClick={() => {
-            signOut(auth).then(() => {
-              console.log('sign out done');
-            });
-          }}
-        >
-          Sign out
-        </Button>
       </div>
       <div className='flex flex-col justify-center items-center gap-10 sm:gap-16'>
         <div className='flex flex-col items-center gap-3'>

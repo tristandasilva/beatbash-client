@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase';
 import axios from 'axios';
+import SignedOutView from './SignedOutView';
+import { Button } from 'flowbite-react';
+import { signOut } from 'firebase/auth';
+import SignedInView from './SignedInView';
 
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -22,7 +26,10 @@ const AuthDetails = () => {
       }
     });
   }, []);
-  return <div>{authUser ? <>Hello, {authUser.firstName}</> : <></>}</div>;
+
+  return (
+    <div>{authUser ? <SignedInView user={authUser} /> : <SignedOutView />}</div>
+  );
 };
 
 export default AuthDetails;
