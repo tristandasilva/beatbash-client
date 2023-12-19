@@ -29,12 +29,15 @@ const SignUpModal = ({ text }) => {
         <div className='modal'>
           <div className='overlay' onClick={toggleModal}></div>
           <div className='modal-content-container sm:mt-0'>
-            <div id='modalDiv' className='modal-content'>
+            <div
+              id='modalDiv'
+              className='modal-content flex flex-col items-stretch'
+            >
               <SignUpForm id='signUpForm' hidden={!hide} />
               <LoginForm redirectBack={false} hidden={hide} />
               {hide ? (
                 <button
-                  className='mt-12 -ml-7 text-sm text-gray-400 hover:underline'
+                  className='mt-12 text-sm text-gray-400 hover:underline text-center'
                   onClick={() => {
                     setHide(false);
                   }}

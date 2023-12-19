@@ -37,10 +37,13 @@ body.active-modal {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 40%;
+  border: 1px solid #d2f38c;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(144, 144, 144, 0.216);
 }
 
 .modal-content {
-  background-color: #422c71;
+  background-color: rgb(66, 44, 113);
   padding: 50px;
   padding-bottom: 20px;
   border-radius: 10px;

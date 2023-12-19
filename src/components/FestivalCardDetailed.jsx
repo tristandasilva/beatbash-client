@@ -3,7 +3,7 @@ import { FaStar } from 'react-icons/fa';
 
 const FestivalCardDetailed = ({ festival }) => {
   if (!festival || !festival.reviews) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
   let genreString = '';
   festival.genres.forEach((genre, index) => {
