@@ -21,19 +21,29 @@ const LoginForm = ({ redirectBack, hidden }) => {
 
   return (
     <div hidden={hidden}>
-      <form onSubmit={signIn} className='authForm flex flex-col w-full gap-5'>
-        <input
-          type='email'
-          placeholder='Email address'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-        <input
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
+      <form
+        onSubmit={signIn}
+        className='authForm flex flex-col w-full gap-7 pb-8'
+      >
+        <div className='flex flex-col gap-2 text-gray-200 text-sm'>
+          <label>Enter your email:</label>
+          <input
+            type='email'
+            placeholder='Email address'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></input>
+        </div>
+        <div className='flex flex-col gap-2 text-gray-200 text-sm'>
+          <label>Enter your password:</label>
+          <input
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
+        </div>
+
         <Button
           type='submit'
           onClick={signIn}

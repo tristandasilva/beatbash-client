@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button } from 'flowbite-react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
-import { Link } from 'react-router-dom';
 import axios from '../api/axiosConfig';
 
 const SignUpForm = ({ hidden }) => {

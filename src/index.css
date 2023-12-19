@@ -52,6 +52,12 @@ body.active-modal {
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* .loginField {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+} */
+
 .authForm input:focus {
   outline: none;
   box-shadow: none;
