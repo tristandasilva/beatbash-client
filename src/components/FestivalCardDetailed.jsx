@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
-const FestivalCardLarge = ({ festival }) => {
+const FestivalCardDetailed = ({ festival }) => {
   if (!festival || !festival.reviews) {
     return <div>Loading...</div>;
   }
@@ -46,4 +46,4 @@ const FestivalCardLarge = ({ festival }) => {
   );
 };
 
-export default FestivalCardLarge;
+export default FestivalCardDetailed;

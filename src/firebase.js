@@ -16,7 +16,7 @@ const firebaseConfig = {
   storageBucket: 'beatbash-67afc.appspot.com',
   messagingSenderId: '308710011506',
   appId: '1:308710011506:web:84f27e53ac6f7c1d2148eb',
-  measurementId: 'G-7R50G9QJPN',
+  measurementId: 'env.REACT_APP_firebasaeMeasurementId',
 };
 
 // Initialize Firebase

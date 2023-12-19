@@ -1,44 +1,20 @@
-import React, { useState } from 'react';
-import { auth } from '../../firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import React, { useState, useEffect } from 'react';
 import { Button } from 'flowbite-react';
-import axios from '../../api/axiosConfig';
+import SignUpForm from '../SignUpForm';
+import LoginForm from '../LoginForm';
 
 const SignUpModal = ({ text }) => {
   const [modal, setModal] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmedPassword, setConfirmedPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [hide, setHide] = useState(true);
 
   const toggleModal = () => {
+    setHide(true);
     setModal(!modal);
   };
 
   modal
     ? document.body.classList.add('active-modal')
     : document.body.classList.remove('active-modal');
-
-  const signUp = (e) => {
-    e.preventDefault();
-    if (password == confirmedPassword) {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          console.log(userCredential.user.uid);
-          axios.post('/api/v1/users', {
-            uid: userCredential.user.uid,
-            firstName: firstName,
-            lastName: lastName,
-            email: userCredential.user.email,
-          });
-          alert('User created');
-        })
-        .catch((err) => alert(err.code));
-    } else {
-      alert("Passwords don't match");
-    }
-  };
 
   return (
     <>
@@ -53,46 +29,28 @@ const SignUpModal = ({ text }) => {
         <div className='modal'>
           <div className='overlay' onClick={toggleModal}></div>
           <div className='modal-content-container sm:mt-0'>
-            <div className='modal-content'>
-              <form className='authForm flex flex-col gap-5'>
-                <input
-                  type='text'
-                  placeholder='First name'
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                ></input>
-                <input
-                  type='text'
-                  placeholder='Last name'
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                ></input>
-                <input
-                  type='email'
-                  placeholder='Email address'
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                ></input>
-                <input
-                  type='password'
-                  placeholder='Password'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                ></input>
-                <input
-                  type='password'
-                  placeholder='Confirm password'
-                  value={confirmedPassword}
-                  onChange={(e) => setConfirmedPassword(e.target.value)}
-                ></input>
-                <Button
-                  type='button'
-                  onClick={signUp}
-                  className='bg-[#D2F38C] border-[1px] text-[#36235F] font-semibold px-5 rounded self-center mt-5'
+            <div id='modalDiv' className='modal-content'>
+              <SignUpForm id='signUpForm' hidden={!hide} />
+              <LoginForm redirectBack={false} hidden={hide} />
+              {hide ? (
+                <button
+                  className='mt-12 -ml-7 text-sm text-gray-400 hover:underline'
+                  onClick={() => {
+                    setHide(false);
+                  }}
                 >
-                  Create Account
-                </Button>
-              </form>
+                  Already have an account? Login.
+                </button>
+              ) : (
+                <button
+                  className='mt-12 -ml-7 text-sm text-gray-400 hover:underline'
+                  onClick={() => {
+                    setHide(true);
+                  }}
+                >
+                  Not signed up yet?
+                </button>
+              )}
             </div>
           </div>
         </div>

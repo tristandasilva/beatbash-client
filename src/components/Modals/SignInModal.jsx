@@ -2,21 +2,13 @@ import React, { useState } from 'react';
 import { Button } from 'flowbite-react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
+import LoginForm from '../LoginForm';
 
 const SignInModal = () => {
   const [modal, setModal] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
   const toggleModal = () => {
     setModal(!modal);
-  };
-
-  const signIn = (e) => {
-    e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => alert('Successfully signed in'))
-      .catch((err) => alert(err.code));
   };
 
   modal
@@ -37,30 +29,7 @@ const SignInModal = () => {
           <div className='overlay' onClick={toggleModal}></div>
           <div className='modal-content-container sm:mt-0'>
             <div className='modal-content'>
-              <form
-                onSubmit={signIn}
-                className='authForm flex flex-col w-full gap-5'
-              >
-                <input
-                  type='email'
-                  placeholder='Email address'
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                ></input>
-                <input
-                  type='password'
-                  placeholder='Password'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                ></input>
-                <Button
-                  type='submit'
-                  onClick={signIn}
-                  className='bg-[#D2F38C] border-[1px] text-[#36235F] font-semibold w-28 rounded self-center mt-5'
-                >
-                  Log In
-                </Button>
-              </form>
+              <LoginForm redirectBack={false} />
             </div>
           </div>
         </div>

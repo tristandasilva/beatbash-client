@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from '../api/axiosConfig.js';
-import FestivalCardLarge from '../components/FestivalCardLarge';
+import FestivalCardDetailed from '../components/FestivalCardDetailed.jsx';
 import Review from '../components/Review';
 import logo from '../assets/logo.png';
 import { Label, Textarea, Button } from 'flowbite-react';
@@ -73,11 +73,11 @@ const FestivalReviewScreen = () => {
         <Link className='max-w-[310px] md:max-w-[300px]' to={'/'}>
           <img src={logo}></img>
         </Link>
-        {authUser ? <SignedInView /> : <></>}
+        {authUser ? <SignedInView user={authUser} /> : <></>}
       </div>
 
       <div className='flex flex-col lg:flex-row items-start justify-between gap-8'>
-        <FestivalCardLarge festival={festival} />
+        <FestivalCardDetailed festival={festival} />
         <div className='w-full -mt-2'>
           <form>
             <div className='mb-2 block'>

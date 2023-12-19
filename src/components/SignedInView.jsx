@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from 'flowbite-react';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 

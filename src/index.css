@@ -42,6 +42,7 @@ body.active-modal {
 .modal-content {
   background-color: #422c71;
   padding: 50px;
+  padding-bottom: 20px;
   border-radius: 10px;
 }
 

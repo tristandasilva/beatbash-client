@@ -3,11 +3,6 @@ import logo from '../assets/logo.png';
 import line from '../assets/line.svg';
 import FestivalCardList from '../components/FestivalCardList.jsx';
 import axios from '../api/axiosConfig.js';
-import SignInModal from '../components/Modals/SignInModal.jsx';
-import SignUpModal from '../components/Modals/SignUpModal.jsx';
-import { auth } from '../firebase.js';
-import { signOut } from 'firebase/auth';
-import { Button } from 'flowbite-react';
 import AuthDetails from '../components/AuthDetails.jsx';
 import { Dropdown } from 'flowbite-react';
 

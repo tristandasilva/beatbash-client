@@ -10,12 +10,14 @@ import App from './App.jsx';
 import './index.css';
 import HomeScreen from './screens/HomeScreen.jsx';
 import FestivalReviewScreen from './screens/FestivalReviewScreen.jsx';
+import LoginForm from './components/LoginForm.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index={true} path='/' element={<HomeScreen />} />
       <Route path='festivals/:festivalId' element={<FestivalReviewScreen />} />
+      <Route path='/login' element={<LoginForm />} />
     </Route>
   )
 );
