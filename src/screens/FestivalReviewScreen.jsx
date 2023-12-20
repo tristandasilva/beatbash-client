@@ -1,18 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from '../api/axiosConfig.js';
-import FestivalCardLarge from '../components/FestivalCardLarge';
+import FestivalCardDetailed from '../components/FestivalCardDetailed.jsx';
 import Review from '../components/Review';
 import logo from '../assets/logo.png';
 import { Label, Textarea, Button } from 'flowbite-react';
 import { FaStar } from 'react-icons/fa';
+import AuthDetails from '../components/AuthDetails.jsx';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase.js';
+import SignUpModal from '../components/Modals/SignUpModal.jsx';
+import SignedInView from '../components/SignedInView.jsx';
+import SignedOutView from '../components/SignedOutView.jsx';
 
 const FestivalReviewScreen = () => {
   const { festivalId } = useParams();
   const [festival, setFestival] = useState({});
+  const [authUser, setAuthUser] = useState(null);
 
   useEffect(() => {
     getSingleFestival(festivalId);
+  }, []);
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        axios
+          .get(
+            'https://vast-shore-06153-20fca160e608.herokuapp.com/api/v1/users/' +
+              user.uid
+          )
+          .then((res) => {
+            setAuthUser(res.data);
+          });
+      } else {
+        setAuthUser(null);
+      }
+    });
   }, []);
 
   const postReview = (e) => {
@@ -22,6 +46,7 @@ const FestivalReviewScreen = () => {
       .post('/api/v1/reviews', {
         body: reviewText.value,
         festivalId: festivalId,
+        userId: auth.currentUser.uid,
       })
       .then((res) => {
         getSingleFestival(festivalId);
@@ -45,11 +70,14 @@ const FestivalReviewScreen = () => {
 
   return (
     <div className='w-[90%] m-auto flex flex-col items-center md:items-stretch gap-6 md:gap-12'>
-      <Link className='max-w-[320px] md:max-w-[300px]' to={'/'}>
-        <img src={logo}></img>
-      </Link>
+      <div className='flex flex-col sm:flex-row gap-3 justify-between items-center'>
+        <Link className='max-w-[310px] md:max-w-[300px]' to={'/'}>
+          <img src={logo}></img>
+        </Link>
+        {authUser ? <SignedInView user={authUser} /> : <></>}
+      </div>
       <div className='flex flex-col lg:flex-row items-start justify-between gap-8'>
-        <FestivalCardLarge festival={festival} />
+        <FestivalCardDetailed festival={festival} />
         <div className='w-full -mt-2'>
           <form>
             <div className='mb-2 block'>
@@ -64,7 +92,7 @@ const FestivalReviewScreen = () => {
               placeholder='Leave a comment...'
               required
               rows={6}
-              className='rounded'
+              className='rounded mb-6'
             />
             {/* Rating Div */}
             {/* <div className='flex mt-4 gap-1'>
@@ -73,13 +101,17 @@ const FestivalReviewScreen = () => {
               })}
             </div> */}
             {/* Rating Div End */}
-            <Button
-              type='submit'
-              onClick={postReview}
-              className='bg-[#D2F38C] text-[#5E5C62] mt-6 px-12 rounded'
-            >
-              Submit
-            </Button>
+            {authUser ? (
+              <Button
+                type='submit'
+                onClick={postReview}
+                className='bg-[#D2F38C] text-[#5E5C62] px-12 rounded'
+              >
+                Submit
+              </Button>
+            ) : (
+              <SignUpModal text={'Log in / Sign Up'} />
+            )}
           </form>
           <div className='customScrollbar reviews mt-10 max-h-[300px] overflow-auto mb-10'>
             {festival.reviews &&

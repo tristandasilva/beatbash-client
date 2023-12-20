@@ -34,7 +34,7 @@ const FestivalCard = ({ festival }) => {
         {/* Rating Div End */}
         <div className='text-xs genre mt-4'>{genreString}</div>
         <Link to={`/festivals/${festival.festivalId}`}>
-          <button className='w-1/2 bg-[#81BE00] rounded px-4 py-2 mt-7 text-xs text-white'>
+          <button className='w-1/2 bg-[#81BE00] hover:bg-[#82be00c4] rounded px-4 py-2 mt-7 text-xs text-white'>
             See Reviews
           </button>
         </Link>

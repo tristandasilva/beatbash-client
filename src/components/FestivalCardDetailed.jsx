@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
-const FestivalCardLarge = ({ festival }) => {
+const FestivalCardDetailed = ({ festival }) => {
   if (!festival || !festival.reviews) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
   let genreString = '';
   festival.genres.forEach((genre, index) => {
@@ -13,7 +13,7 @@ const FestivalCardLarge = ({ festival }) => {
   });
 
   return (
-    <div className='rounded-md overflow-hidden max-w-[425px] h-full'>
+    <div className='rounded-md overflow-hidden max-w-full lg:max-w-[425px] h-full'>
       <div>
         <img src={festival.images[0]} alt='Festival Image' className='w-full' />
       </div>
@@ -35,15 +35,10 @@ const FestivalCardLarge = ({ festival }) => {
         </div>
         {/* Rating Div End */}
         <div className='text-xs genre mt-4'>{genreString}</div>
-        <p className='text-sm font-light my-4'>
-          Lorem ipsum dolor sit amet consectetur. Nisl risus suspendisse vel
-          viverra id aliquet semper. Adipiscing elementum pellentesque odio
-          sollicitudin in enim nisl libero volutpat. Mattis integer in eget
-          amet. Quis suspendisse nisl cursus tincidunt et.
-        </p>
+        <p className='text-sm font-light my-4'>{festival.description}</p>
       </div>
     </div>
   );
 };
 
-export default FestivalCardLarge;
+export default FestivalCardDetailed;
