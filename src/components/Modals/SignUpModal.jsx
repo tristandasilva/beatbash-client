@@ -20,7 +20,7 @@ const SignUpModal = ({ text }) => {
     <>
       <Button
         type='button'
-        className='bg-[#36235F] border-[1px] border-[#D2F38C] text-[#D2F38C] px-8 sm:px-0 rounded'
+        className='bg-[#36235F] hover:bg-[#2a1950] border-[1px] border-[#D2F38C] text-[#D2F38C] px-8 sm:px-0 rounded'
         onClick={toggleModal}
       >
         {text}
