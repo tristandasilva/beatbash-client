@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Button } from 'flowbite-react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase';
 import LoginForm from '../LoginForm';
 
 const SignInModal = () => {

@@ -17,7 +17,7 @@ const SignedOutView = () => {
     ? document.body.classList.add('active-modal')
     : document.body.classList.remove('active-modal');
   return (
-    <div className='flex sm:flex-col mt-4 sm:mt-0 gap-2'>
+    <div className='flex flex-col mt-4 sm:mt-0 gap-2'>
       <SignInModal />
       <SignUpModal text={'Sign Up'}>
         <SignUpForm id='signUpForm' hidden={!hide} />

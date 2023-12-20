@@ -11,6 +11,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase.js';
 import SignUpModal from '../components/Modals/SignUpModal.jsx';
 import SignedInView from '../components/SignedInView.jsx';
+import SignedOutView from '../components/SignedOutView.jsx';
 
 const FestivalReviewScreen = () => {
   const { festivalId } = useParams();
@@ -68,14 +69,13 @@ const FestivalReviewScreen = () => {
   };
 
   return (
-    <div className='w-[90%] m-auto flex flex-col items-center md:items-stretch gap-6 md:gap-12'>
-      <div className='flex justify-between'>
+    <div className='w-[90%] m-auto flex flex-col items-center md:items-stretch gap-6 md:gap-12 lg:mt-10 '>
+      <div className='flex flex-col sm:flex-row gap-3 justify-between items-center'>
         <Link className='max-w-[310px] md:max-w-[300px]' to={'/'}>
           <img src={logo}></img>
         </Link>
         {authUser ? <SignedInView user={authUser} /> : <></>}
       </div>
-
       <div className='flex flex-col lg:flex-row items-start justify-between gap-8'>
         <FestivalCardDetailed festival={festival} />
         <div className='w-full -mt-2'>

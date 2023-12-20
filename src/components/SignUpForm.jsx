@@ -23,7 +23,7 @@ const SignUpForm = ({ hidden }) => {
             lastName: lastName,
             email: userCredential.user.email,
           });
-          alert('User created');
+          alert('Account created successfully!');
         })
         .catch((err) => alert(err));
     } else {

@@ -11,7 +11,7 @@ const LoginForm = ({ redirectBack, hidden }) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        alert('Successfully signed in');
+        alert('Sign in successful');
         if (redirectBack) {
           history.back();
         }

@@ -4,7 +4,7 @@ import { auth } from './firebase.js';
 
 function App() {
   return (
-    <div className='App flex items-center justify-center'>
+    <div className='App flex items-center justify-center h-full'>
       <Outlet />
     </div>
   );

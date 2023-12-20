@@ -5,14 +5,19 @@ import FestivalCardList from '../components/FestivalCardList.jsx';
 import axios from '../api/axiosConfig.js';
 import AuthDetails from '../components/AuthDetails.jsx';
 import { Dropdown } from 'flowbite-react';
+import { auth } from '../firebase.js';
+import SignedInView from '../components/SignedInView.jsx';
 
 const HomeScreen = () => {
   const [festivals, setFestivals] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState({});
 
   useEffect(() => {
+    setIsLoading(true);
     axios.get('/api/v1/festivals').then((res) => {
       setFestivals(res.data);
+      setIsLoading(false);
     });
   }, []);
 
@@ -24,15 +29,12 @@ const HomeScreen = () => {
           label=''
           dismissOnClick={false}
         >
-          <Dropdown.Item>
-            <AuthDetails></AuthDetails>
-          </Dropdown.Item>
+          <AuthDetails></AuthDetails>
         </Dropdown>
-        
       </div> */}
-      <div className='sm:hidden w-full flex justify-center mb-8'>
+      {/* <div className='sm:hidden w-full flex justify-center mb-8'>
         <AuthDetails></AuthDetails>
-      </div>
+      </div> */}
       <div className='flex flex-col gap-3 float-right -ml-[200px] mr-[64px]'>
         <div className='hidden sm:flex'>
           <AuthDetails></AuthDetails>
@@ -40,6 +42,10 @@ const HomeScreen = () => {
       </div>
       <div className='flex flex-col justify-center items-center gap-10 sm:gap-16'>
         <div className='flex flex-col items-center gap-3'>
+          {/* <div className='sm:hidden'>
+            {user ? <SignedInView user={user} /> : <></>}
+          </div> */}
+
           <div className='max-w-xs'>
             <img src={logo}></img>
           </div>
@@ -48,6 +54,7 @@ const HomeScreen = () => {
             Review The Ryhthm
           </p>
         </div>
+        {isLoading && <div className='min-w-[90vw] h-full'></div>}
         <FestivalCardList festivals={festivals} />
       </div>
     </div>

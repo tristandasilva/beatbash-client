@@ -35,12 +35,7 @@ const FestivalCardDetailed = ({ festival }) => {
         </div>
         {/* Rating Div End */}
         <div className='text-xs genre mt-4'>{genreString}</div>
-        <p className='text-sm font-light my-4'>
-          Lorem ipsum dolor sit amet consectetur. Nisl risus suspendisse vel
-          viverra id aliquet semper. Adipiscing elementum pellentesque odio
-          sollicitudin in enim nisl libero volutpat. Mattis integer in eget
-          amet. Quis suspendisse nisl cursus tincidunt et.
-        </p>
+        <p className='text-sm font-light my-4'>{festival.description}</p>
       </div>
     </div>
   );

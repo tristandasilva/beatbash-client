@@ -10,7 +10,7 @@ const SignedInView = ({ user }) => {
     : document.body.classList.remove('active-modal');
 
   return (
-    <div className='flex sm:flex-col items-end gap-2'>
+    <div className='flex sm:flex-col items-end gap-3'>
       <p className='font-light text-white'>Hello, {user.firstName}</p>
       <button
         className='font-semibold text-[#6EA100] hover:underline'
