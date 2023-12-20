@@ -13,7 +13,7 @@ const LoginForm = ({ redirectBack, hidden }) => {
       .then((userCredential) => {
         alert('Sign in successful');
         if (redirectBack) {
-          history.back();
+          history.go(-1);
         }
       })
       .catch((err) => alert(err.code));
