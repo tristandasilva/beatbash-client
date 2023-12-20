@@ -2,7 +2,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { getAuth } from 'firebase/auth';
-import env from 'react-dotenv';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -10,13 +9,13 @@ import env from 'react-dotenv';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: 'AIzaSyDHc1ug5a9wIBGVzZEO7_yRe84nPnmWjlY',
-  authDomain: 'beatbash-67afc.firebaseapp.com"',
-  projectId: 'beatbash-67afc',
-  storageBucket: 'beatbash-67afc.appspot.com',
-  messagingSenderId: '308710011506',
-  appId: '1:308710011506:web:84f27e53ac6f7c1d2148eb',
-  measurementId: 'env.REACT_APP_firebasaeMeasurementId',
+  apiKey: import.meta.env.VITE_firebaseApiKey,
+  authDomain: import.meta.env.VITE_firebaseAuthDomain,
+  projectId: import.meta.env.VITE_firebaseProjectId,
+  storageBucket: import.meta.env.VITE_firebaseStorageBucket,
+  messagingSenderId: import.meta.env.VITE_firebaseMessagingSenderid,
+  appId: import.meta.env.VITE_firebaseAppId,
+  measurementId: import.meta.env.VITE_firebaseMeasurementId,
 };
 
 // Initialize Firebase

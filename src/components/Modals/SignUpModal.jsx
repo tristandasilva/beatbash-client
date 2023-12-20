@@ -34,7 +34,7 @@ const SignUpModal = ({ text }) => {
               className='modal-content flex flex-col items-stretch'
             >
               <SignUpForm id='signUpForm' hidden={!hide} />
-              <LoginForm redirectBack={false} hidden={hide} />
+              <LoginForm redirectBack={true} hidden={hide} />
               {hide ? (
                 <button
                   className='mt-12 text-sm text-gray-400 hover:underline text-center'
