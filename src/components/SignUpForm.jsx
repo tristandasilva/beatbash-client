@@ -24,6 +24,7 @@ const SignUpForm = ({ hidden }) => {
             email: userCredential.user.email,
           });
           alert('Account created successfully!');
+          window.location.reload(false);
         })
         .catch((err) => alert(err));
     } else {
