@@ -40,7 +40,7 @@ const HomeScreen = () => {
           <AuthDetails></AuthDetails>
         </div>
       </div>
-      <div className='flex flex-col justify-center items-center gap-10 sm:gap-16'>
+      <div className='flex flex-col justify-center items-center gap-10 sm:gap-16 xl:mt-[4%]'>
         <div className='flex flex-col items-center gap-3'>
           {/* <div className='sm:hidden'>
             {user ? <SignedInView user={user} /> : <></>}
